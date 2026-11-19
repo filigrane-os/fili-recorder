@@ -27,7 +27,7 @@ jobs:
           restore-keys: cargo-
       - name: Build and test
         run: |
-          docker run --rm -v "$PWD":/src -w /src -e CARGO_HOME=/src/.cache/cargo -e CARGO_TARGET_DIR=/src/.cache/target \
+          docker run --rm -v "$PWD":/src -w /src -e CARGO_HOME=/src/.cache/cargo -e CARGO_TARGET_DIR=/src/.cache/target -e QMAKE=/usr/lib/qt6/bin/qmake6 \
             ghcr.io/void-linux/void-glibc-full:latest sh -exc '
               xbps-install -Syu xbps || true
               xbps-install -Syu
