@@ -32,7 +32,7 @@ jobs:
               xbps-install -Syu xbps || true
               xbps-install -Syu
               xbps-install -y bash cargo gcc make pkg-config python3 git qt6-base-devel qt6-declarative-devel qt6-svg-devel qt6-wayland
-              cargo build --release --locked && cargo test --release --locked'
+              make build test'
 
   release:
     needs: check
