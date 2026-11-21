@@ -1,0 +1,22 @@
+{
+ "Choose an input or an output": "Choisir une entrée ou une sortie",
+ "Default": "Par défaut",
+ "INPUT": "ENTRÉE",
+ "Input": "Entrée",
+ "None": "Aucun",
+ "Not recording": "Pas d'enregistrement",
+ "OUTPUT": "SORTIE",
+ "Open Cassette": "Ouvrir Cassette",
+ "Open recordings folder": "Ouvrir le dossier des enregistrements",
+ "Output": "Sortie",
+ "REC": "ENR",
+ "SAVING": "SAUVEGARDE",
+ "Saved: %1": "Enregistré : %1",
+ "Saving…": "Sauvegarde…",
+ "Since": "Depuis",
+ "Start recording": "Démarrer l'enregistrement",
+ "Stop recording": "Arrêter l'enregistrement",
+ "The sources apply to the next recording": "Les sources s'appliquent au prochain enregistrement",
+ "click: panel · right click: menu · middle click: record": "clic: panneau · clic droit: menu · clic milieu: enregistrer",
+ "click: panel · right click: menu · middle click: stop": "clic: panneau · clic droit: menu · clic milieu: arrêter"
+}
