@@ -13,13 +13,11 @@
     },
     {
       "verb": "state",
-      "args": "",
       "summary": "JSON of the state of the window",
       "reads": true
     },
     {
       "verb": "actions",
-      "args": "",
       "summary": "JSON list of the action names",
       "reads": true
     }
