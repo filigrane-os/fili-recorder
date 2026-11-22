@@ -83,8 +83,8 @@ pub mod qobject {
         #[qinvokable]
         #[cxx_name = "openPath"]
         fn open_path(self: &Fili, path: &QString);
-        // "Ask Rob" header button: `fili-chat here` shows the small field of Rob scoped to this application; the button
-        // shows only where `fili-chat` is installed
+        // "Ask Rob" header button: `fili-ai here` shows the small field of Rob scoped to this application; the button
+        // shows only where the assistant (`fili-ai-daemon`) is installed
         #[qinvokable]
         #[cxx_name = "askRob"]
         fn ask_rob(self: &Fili);
@@ -410,7 +410,7 @@ impl qobject::Fili {
     }
 
     pub fn ask_rob(&self) {
-        let child = std::process::Command::new("fili-chat")
+        let child = std::process::Command::new("fili-ai")
             .arg("here")
             .stdin(std::process::Stdio::null())
             .stdout(std::process::Stdio::null())
@@ -422,7 +422,7 @@ impl qobject::Fili {
     }
 
     pub fn rob_available(&self) -> bool {
-        std::env::var_os("PATH").is_some_and(|p| std::env::split_paths(&p).any(|d| d.join("fili-chat").is_file()))
+        std::env::var_os("PATH").is_some_and(|p| std::env::split_paths(&p).any(|d| d.join("fili-ai-daemon").is_file()))
     }
 
     pub fn report_problem(&self, text: &QString) -> QString {
