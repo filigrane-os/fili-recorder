@@ -23,5 +23,124 @@
       "summary": "JSON list of the action names",
       "reads": true
     }
+  ],
+  "actions": [
+    {
+      "name": "about",
+      "label": "About Cassette"
+    },
+    {
+      "name": "mode-library",
+      "label": "Recordings",
+      "keys": "Ctrl+1"
+    },
+    {
+      "name": "mode-record",
+      "label": "Record",
+      "keys": "Ctrl+2"
+    },
+    {
+      "name": "record-toggle",
+      "label": "Start or Stop Recording",
+      "keys": "Ctrl+R"
+    },
+    {
+      "name": "play-pause",
+      "label": "Play or Pause",
+      "keys": "Space"
+    },
+    {
+      "name": "stop",
+      "label": "Stop"
+    },
+    {
+      "name": "next",
+      "label": "Next",
+      "keys": "Ctrl+Right"
+    },
+    {
+      "name": "prev",
+      "label": "Previous",
+      "keys": "Ctrl+Left"
+    },
+    {
+      "name": "seek-back",
+      "label": "Back 10 Seconds",
+      "keys": "Left"
+    },
+    {
+      "name": "seek-forward",
+      "label": "Forward 10 Seconds",
+      "keys": "Right"
+    },
+    {
+      "name": "play-selected",
+      "label": "Play Selected",
+      "keys": "Return"
+    },
+    {
+      "name": "rename",
+      "label": "Rename…",
+      "keys": "F2"
+    },
+    {
+      "name": "trash",
+      "label": "Move to Trash",
+      "keys": "Delete"
+    },
+    {
+      "name": "show-in-casier",
+      "label": "Show in Casier"
+    },
+    {
+      "name": "open-folder",
+      "label": "Open Recordings Folder"
+    },
+    {
+      "name": "copy-name",
+      "label": "Copy Name"
+    },
+    {
+      "name": "search",
+      "label": "Search",
+      "keys": "Ctrl+F"
+    },
+    {
+      "name": "settings",
+      "label": "Settings…"
+    },
+    {
+      "name": "toggle-header",
+      "label": "Show Header"
+    },
+    {
+      "name": "toggle-footer",
+      "label": "Show Status Bar"
+    },
+    {
+      "name": "attention"
+    },
+    {
+      "name": "attention-clear"
+    },
+    {
+      "name": "debug",
+      "label": "Debug Logs",
+      "keys": "Ctrl+Shift+L"
+    },
+    {
+      "name": "toggle-window-buttons",
+      "label": "Show Window Buttons"
+    },
+    {
+      "name": "window-actions",
+      "label": "Window Actions…",
+      "keys": "Ctrl+Shift+W"
+    },
+    {
+      "name": "close",
+      "label": "Close",
+      "keys": "Ctrl+W"
+    }
   ]
 }
