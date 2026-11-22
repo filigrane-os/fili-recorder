@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.3.0 (2026-11-22)
+
+- The assistant is now named Lia: the header button and the menu entry say "Ask Lia", and the hidden brief is `shell/lia/<app_id>.md` (the older `rob/` is still read).
+- A catalog of the commands of the window (`shell/ctl/<app_id>.json`, `fili-api show`) that follows the shared format; the assistant is driven by `fili-ai` as one client of the Filigrane contracts.
+
 ## v0.2.0 (2026-11-21)
 
 - Everything Cassette brings to the desktop now lives in this repository and is installed with it (`make install`): the launcher (`data/fili-recorder.desktop`), the icon, and what the Filigrane shell reads, in `shell/`, instead of being kept in the distribution's repository: the `recorder` module of the fili-bar (`shell/fili-bar/recorder/`, with its French translations), the fallback menu of the bar (`shell/appmenu/fili-recorder.json`) and the brief of Rob for this application (`shell/rob/fili-recorder.md`). The package puts it in `/usr/share/filigrane/shell/`, `fili-bar link-system` (run at login) links it into the bar and the menus; a module, menu or brief of your own with the same name wins.

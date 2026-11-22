@@ -1,6 +1,6 @@
 [package]
 name = "fili-recorder"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2024"
 description = "Cassette (fili-recorder): records the sound of the machine (an input and an output) and plays the recordings back, in a Qt Quick window like Casier"
 license = "GPL-3.0-or-later"
