@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """The fili-bar menu of Cassette (shell/appmenu/fili-recorder.json) stays in agreement with the window (qml/Main.qml): every
 `fili-recorder ctl --pid %pid action NAME` of the menu is an action of the window, every action of the window is in the menu
-(the few that have none are listed below), every announced shortcut has its `Shortcut` in the window, and the brief of Rob
-(shell/rob/fili-recorder.md) exists. Usage: scripts/check-shell-menu.py (from anywhere)."""
+(the few that have none are listed below), every announced shortcut has its `Shortcut` in the window, and the brief of Lia
+(shell/lia/fili-recorder.md) exists. Usage: scripts/check-shell-menu.py (from anywhere)."""
 import json, pathlib, re, sys
 
 root = pathlib.Path(__file__).resolve().parents[1]
@@ -14,8 +14,8 @@ shortcuts = set(re.findall(r'Shortcut \{ sequence: "([^"]+)"', qml)) | set(re.fi
 # Test hooks for the attention colours (ctl only): not commands of the user
 without_menu = {"attention", "attention-clear"}
 errors = []
-if not (root / "shell/rob/fili-recorder.md").is_file():
-    errors.append("brief of Rob missing: shell/rob/fili-recorder.md")
+if not (root / "shell/lia/fili-recorder.md").is_file():
+    errors.append("brief of Lia missing: shell/lia/fili-recorder.md")
 
 def entries(items):
     for e in items:

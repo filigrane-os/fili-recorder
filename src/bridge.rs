@@ -71,7 +71,7 @@ pub mod qobject {
         fn copy_text(self: &Fili, text: &QString);
         // Debug panel (src/logs.rs): the log entries after number `since` as JSON {"seq": last number, "entries": [[level,
         // text], ...]} (level 0 debug, 1 info, 2 warning, 3 error), the file of the log, a way to empty the panel, the file
-        // opened by its application, and "Ask Rob": records an incident and asks Rob to look at it (its id, "" on failure)
+        // opened by its application, and "Ask Lia": records an incident and asks Lia to look at it (its id, "" on failure)
         #[qinvokable]
         fn logs(self: &Fili, since: i32) -> QString;
         #[qinvokable]
@@ -83,14 +83,14 @@ pub mod qobject {
         #[qinvokable]
         #[cxx_name = "openPath"]
         fn open_path(self: &Fili, path: &QString);
-        // "Ask Rob" header button: `fili-ai here` shows the small field of Rob scoped to this application; the button
+        // "Ask Lia" header button: `fili-ai here` shows the small field of Lia scoped to this application; the button
         // shows only where the assistant (`fili-ai-daemon`) is installed
         #[qinvokable]
-        #[cxx_name = "askRob"]
-        fn ask_rob(self: &Fili);
+        #[cxx_name = "askLia"]
+        fn ask_lia(self: &Fili);
         #[qinvokable]
-        #[cxx_name = "robAvailable"]
-        fn rob_available(self: &Fili) -> bool;
+        #[cxx_name = "liaAvailable"]
+        fn lia_available(self: &Fili) -> bool;
         #[qinvokable]
         #[cxx_name = "reportProblem"]
         fn report_problem(self: &Fili, text: &QString) -> QString;
@@ -409,7 +409,7 @@ impl qobject::Fili {
             .spawn();
     }
 
-    pub fn ask_rob(&self) {
+    pub fn ask_lia(&self) {
         let child = std::process::Command::new("fili-ai")
             .arg("here")
             .stdin(std::process::Stdio::null())
@@ -421,7 +421,7 @@ impl qobject::Fili {
         }
     }
 
-    pub fn rob_available(&self) -> bool {
+    pub fn lia_available(&self) -> bool {
         std::env::var_os("PATH").is_some_and(|p| std::env::split_paths(&p).any(|d| d.join("fili-ai-daemon").is_file()))
     }
 

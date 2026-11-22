@@ -23,7 +23,7 @@ fn main() {
                 "qml/FiliScrollBar.qml",
                 "qml/KineticScroll.qml",
                 "qml/DebugPanel.qml",
-                "qml/RobButton.qml",
+                "qml/LiaButton.qml",
             ])
             .qml_file(QmlFile::from("qml/FiliTheme.qml").singleton(true))
             .depend("QtQuick")
