@@ -31,6 +31,7 @@ build:
 test:
 	$(CARGO) test --release --locked
 	python3 -I scripts/check-shell-menu.py
+	python3 -I scripts/check-ctl-catalog.py
 
 install: build install-data
 	install -Dm755 $(TARGET_DIR)/release/fili-recorder $(DESTDIR)$(BINDIR)/fili-recorder
@@ -50,4 +51,4 @@ uninstall:
 	rm -f $(DESTDIR)$(DATADIR)/icons/hicolor/scalable/apps/fili-recorder.svg
 	rm -rf $(DESTDIR)$(DATADIR)/licenses/fili-recorder
 	rm -rf $(DESTDIR)$(DATADIR)/filigrane/shell/fili-bar/recorder
-	rm -f $(DESTDIR)$(DATADIR)/filigrane/shell/appmenu/fili-recorder.json $(DESTDIR)$(DATADIR)/filigrane/shell/rob/fili-recorder.md
+	rm -f $(DESTDIR)$(DATADIR)/filigrane/shell/ctl/fili-recorder.json $(DESTDIR)$(DATADIR)/filigrane/shell/appmenu/fili-recorder.json $(DESTDIR)$(DATADIR)/filigrane/shell/rob/fili-recorder.md

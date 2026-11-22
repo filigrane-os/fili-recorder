@@ -1,0 +1,27 @@
+{
+  "v": 1,
+  "app_id": "fili-recorder",
+  "name": "Cassette",
+  "program": "fili-recorder",
+  "ctl": "fili-recorder ctl --pid %pid",
+  "commands": [
+    {
+      "verb": "action",
+      "args": "NAME [ARG]",
+      "summary": "Run a command of the window (the same names as its menu, plus a few for the bar panel)",
+      "reads": false
+    },
+    {
+      "verb": "state",
+      "args": "",
+      "summary": "JSON of the state of the window",
+      "reads": true
+    },
+    {
+      "verb": "actions",
+      "args": "",
+      "summary": "JSON list of the action names",
+      "reads": true
+    }
+  ]
+}
