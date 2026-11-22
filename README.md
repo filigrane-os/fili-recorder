@@ -18,7 +18,6 @@ Files go to `~/Music/Recordings` (`dir` in `~/.config/filigrane/fili-recorder.to
 QMAKE=/usr/lib/qt6/bin/qmake6 cargo build --release
 ```
 
-Lives in filigrane-os/fili-recorder; the Filigrane distribution pins a tag (`apps/fili-recorder/upstream`). The fili-bar
-menu, the `recorder` bar module, the launcher entry and the icon of the launcher stay in filigrane-os/filigrane. The
-parity tests that compare the theme with the shell run with `FILI_SHELL_DIR=<filigrane>/dotfiles/config/quickshell cargo test`
-and are skipped without it.
+Lives in filigrane-os/fili-recorder; the Filigrane distribution pins a tag (`apps/fili-recorder/upstream`). Everything it brings to the desktop (the `recorder` module of the fili-bar, the fallback
+menu, the brief of Rob, the launcher and the icon) lives here (`shell/`, `data/`, `icons/`) and is installed by `make install`.
+That its theme and its `KineticScroll.qml` follow the fili-shell is checked by the Filigrane repository (`tests/fili-shell/check-app-shell-parity.py`).
