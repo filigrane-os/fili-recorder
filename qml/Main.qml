@@ -6,9 +6,12 @@
 import QtQuick
 import QtQuick.Controls.Basic
 import Fili.Cassette
+import Fili.UI
 
 ApplicationWindow {
     id: win
+    // The kit reads the theme through the application's object. Evaluated first: the tokens must be right from the first binding
+    readonly property bool kitReady: { FiliHost.backend = Fili; return true; }
     // Fonts embedded in the binary: same look on every distribution
     FontLoader { id: fontText; source: "qrc:/qt/qml/Fili/Cassette/fonts/Jost-Variable.ttf" }
     FontLoader { id: fontMono; source: "qrc:/qt/qml/Fili/Cassette/fonts/JetBrainsMono-Variable.ttf" }
@@ -422,7 +425,7 @@ ApplicationWindow {
             Accessible.role: Accessible.Button
             Accessible.name: Fili.tr("Window")
         }
-        LiaButton {
+        FiliLiaButton {
             id: liaButton
             visible: Fili.liaAvailable()
             anchors { right: windowButton.visible ? windowButton.left : closeButton.visible ? closeButton.left : parent.right; rightMargin: windowButton.visible || closeButton.visible ? FiliTheme.space1 : FiliTheme.margin; verticalCenter: parent.verticalCenter }
@@ -851,8 +854,8 @@ ApplicationWindow {
                 x: FiliTheme.margin
                 anchors.verticalCenter: parent.verticalCenter
                 spacing: FiliTheme.space1
-                IconButton { glyph: win.g.prev; enabledState: cas.playing; onClicked: cas.prev(); Accessible.name: Fili.tr("Previous") }
-                IconButton { glyph: win.g.back; enabledState: cas.playing; onClicked: cas.seekBy(-10); Accessible.name: Fili.tr("Back 10 seconds") }
+                FiliIconButton { glyph: win.g.prev; enabledState: cas.playing; onClicked: cas.prev(); Accessible.name: Fili.tr("Previous") }
+                FiliIconButton { glyph: win.g.back; enabledState: cas.playing; onClicked: cas.seekBy(-10); Accessible.name: Fili.tr("Back 10 seconds") }
                 Rectangle {
                     id: playButton
                     width: 40
@@ -879,9 +882,9 @@ ApplicationWindow {
                     Accessible.role: Accessible.Button
                     Accessible.name: cas.playing && !cas.paused ? Fili.tr("Pause") : Fili.tr("Play")
                 }
-                IconButton { glyph: win.g.fwd; enabledState: cas.playing; onClicked: cas.seekBy(10); Accessible.name: Fili.tr("Forward 10 seconds") }
-                IconButton { glyph: win.g.next; enabledState: cas.playing; onClicked: cas.next(); Accessible.name: Fili.tr("Next") }
-                IconButton { glyph: win.g.stop; enabledState: cas.playing; onClicked: cas.stopPlay(); Accessible.name: Fili.tr("Stop") }
+                FiliIconButton { glyph: win.g.fwd; enabledState: cas.playing; onClicked: cas.seekBy(10); Accessible.name: Fili.tr("Forward 10 seconds") }
+                FiliIconButton { glyph: win.g.next; enabledState: cas.playing; onClicked: cas.next(); Accessible.name: Fili.tr("Next") }
+                FiliIconButton { glyph: win.g.stop; enabledState: cas.playing; onClicked: cas.stopPlay(); Accessible.name: Fili.tr("Stop") }
             }
             Text {
                 id: elapsed
@@ -991,10 +994,9 @@ ApplicationWindow {
                 font.weight: FiliTheme.weightAccent
                 color: FiliTheme.muted
             }
-            SourcePicker {
+            FiliSelect {
                 width: parent.width
-                enabled: !cas.recording
-                opacity: enabled ? 1 : 0.5
+                enabledState: !cas.recording
                 model: win.choices(win.sources.inputs, win.sources.default_input)
                 current: cas.input
                 placeholder: cas.input
@@ -1008,10 +1010,9 @@ ApplicationWindow {
                 font.weight: FiliTheme.weightAccent
                 color: FiliTheme.muted
             }
-            SourcePicker {
+            FiliSelect {
                 width: parent.width
-                enabled: !cas.recording
-                opacity: enabled ? 1 : 0.5
+                enabledState: !cas.recording
                 model: win.choices(win.sources.outputs, win.sources.default_output)
                 current: cas.output
                 placeholder: cas.output
@@ -1025,10 +1026,9 @@ ApplicationWindow {
                 font.weight: FiliTheme.weightAccent
                 color: FiliTheme.muted
             }
-            SourcePicker {
+            FiliSelect {
                 width: parent.width
-                enabled: !cas.recording
-                opacity: enabled ? 1 : 0.5
+                enabledState: !cas.recording
                 model: win.formats
                 current: cas.format
                 placeholder: cas.format
@@ -1156,7 +1156,7 @@ ApplicationWindow {
     }
 
     // Debug panel (View > Debug Logs): the log of the window above the footer, or at the bottom when it is hidden
-    DebugPanel {
+    FiliDebugPanel {
         id: debug
         anchors { bottom: statusbar.top; left: parent.left; right: parent.right }
     }
@@ -1227,7 +1227,7 @@ ApplicationWindow {
     }
 
     // ---- Window actions, menus, About -----------------------------------------------------------------------------
-    WindowPanel {
+    FiliWindowPanel {
         id: windowPanel
         anchorRight: width - (toolbar.height - closeButton.height) / 2
         anchorTop: toolbar.height + 1
@@ -1243,7 +1243,7 @@ ApplicationWindow {
             { id: "trash", label: Fili.tr("Move to Trash"), hint: "Delete" }
         ];
     }
-    ContextMenu {
+    FiliMenu {
         id: menu
         onActivated: id => win.runAction(id)
     }

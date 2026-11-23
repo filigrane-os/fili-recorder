@@ -1,7 +1,11 @@
 // QML interface compiled into the binary (module Fili.Cassette, qrc:/qt/qml/Fili/Cassette/qml/), Rust objects of src/bridge.rs
-use cxx_qt_build::{CxxQtBuilder, QmlFile, QmlModule};
+use cxx_qt_build::{CxxQtBuilder, QmlModule};
 
 fn main() {
+    // Tokens of the shared kit (Fili.UI), for the test that checks the FiliTheme.* names used in the QML
+    if let Ok(p) = std::env::var("DEP_FILI_UI_THEME_QML") {
+        println!("cargo::rustc-env=FILI_UI_THEME_QML={p}");
+    }
     // Version of the About card: tag or commit of the repository (absent outside a repository)
     if let Ok(o) = std::process::Command::new("git").args(["describe", "--tags", "--always", "--dirty"]).output()
         && o.status.success()
@@ -12,20 +16,8 @@ fn main() {
         QmlModule::new("Fili.Cassette")
             .qml_files([
                 "qml/Main.qml",
-                "qml/SourcePicker.qml",
-                "qml/IconButton.qml",
-                "qml/TextButton.qml",
-                "qml/ViewSwitch.qml",
-                "qml/ContextMenu.qml",
-                "qml/WindowGlyph.qml",
-                "qml/WindowPanel.qml",
-                "qml/FocusRing.qml",
-                "qml/FiliScrollBar.qml",
-                "qml/KineticScroll.qml",
-                "qml/DebugPanel.qml",
-                "qml/LiaButton.qml",
             ])
-            .qml_file(QmlFile::from("qml/FiliTheme.qml").singleton(true))
+            .depend("Fili.UI")
             .depend("QtQuick")
             .depend("QtQuick.Controls"),
     )
