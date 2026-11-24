@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.3.1 (2026-11-23)
+
+- The interface controls come from the shared kit `fili-ui` (v0.3.0) instead of local copies: theme, focus ring, kinetic scroll, window glyph, buttons, menu, drop-down choice, window panel, debug panel and Lia button. The look is the same; the three drop-downs of the Record page are the kit's (26 px high).
+- `scripts/check-i18n.py` (run by `make test`) checks the French catalog against the texts of the code and of the kit; one missing text added, three unused ones removed.
+
 ## v0.3.0 (2026-11-22)
 
 - The assistant is now named Lia: the header button and the menu entry say "Ask Lia", and the hidden brief is `shell/lia/<app_id>.md` (the older `rob/` is still read).
