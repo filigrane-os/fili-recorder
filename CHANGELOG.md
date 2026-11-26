@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.4.0 (2026-11-26)
+
+- The Window button of the header is the kit's (`fili-ui` v0.7.1): a click maximizes the column (niri's Mod+F) or gives it back its
+  width, and its picture shows which; resting the pointer on it for a second opens the window panel, a right click opens it at once.
+- A clearer selection from the kit: the current tab, the selected sidebar row and selected text are a translucent wash of the accent
+  instead of grey steps; the kit's dialogs have a × at the top right.
+
 ## v0.3.1 (2026-11-23)
 
 - The interface controls come from the shared kit `fili-ui` (v0.3.0) instead of local copies: theme, focus ring, kinetic scroll, window glyph, buttons, menu, drop-down choice, window panel, debug panel and Lia button. The look is the same; the three drop-downs of the Record page are the kit's (26 px high).
