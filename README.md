@@ -21,3 +21,11 @@ QMAKE=/usr/lib/qt6/bin/qmake6 cargo build --release
 Lives in filigrane-os/fili-recorder; the Filigrane distribution pins a tag (`apps/fili-recorder/upstream`). Everything it brings to the desktop (the `recorder` module of the fili-bar, the fallback
 menu, the brief of Lia, the launcher and the icon) lives here (`shell/`, `data/`, `icons/`) and is installed by `make install`.
 That its theme and its `KineticScroll.qml` follow the fili-shell is checked by the Filigrane repository (`tests/fili-shell/check-app-shell-parity.py`).
+
+## Weight
+
+Measured on each release, the window open and idle (resident memory, CPU averaged over 10 s).
+
+| Version | Window RAM (RSS) | CPU idle |
+|---|---|---|
+| 0.4.0 | 83 MB | 0.3 % |
